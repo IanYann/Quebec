@@ -2,10 +2,21 @@ body{
     background-color: #3E363F;
     color: #E1E6E1;
     font-size: large;
+    display: flex;
+    flex-direction: column; /* Alignement vertical des éléments */
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    
 }
 
-a {
+a{
+    text-decoration: none;
     color: #E1E6E1;
+}
+
+details a {
+    color: #1871f5;
     text-decoration: none;
     list-style: none;
 }
@@ -42,35 +53,68 @@ a {
     height: fit-content;
 }
 
-.info h1{
-    text-align: center;
-}
 
-.info a{
-    color: #D4AF37;
-}
-
-.info li {
-    margin: 10px;
-}
-
-.info img {
-    margin: 10px;
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
-}
 
 footer {
     background-color: #73A580;
     padding: 20px;
     text-align: center;
-    margin: 20px;
     border-radius: 15px;
-    margin-left: 30%;
-    margin-right: 30%;
+    height: fit-content;
+    width: 85%;
 }
 
 span {
     color: red;
+}
+
+details {
+    background: #73A580;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+details > * {
+    transition:  0.3s ease-in-out;
+}
+
+details:before {
+    content: url('chemin_vers_votre_icone.png'); /* Remplacez 'chemin_vers_votre_icone.png' par le chemin vers votre icône */
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    transition: background 0.3s ease-in-out;
+}
+
+summary {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: .5em;
+    cursor: pointer;
+    padding-left: 40px;
+    transition: max-height 0.3s ease-in-out;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+details[open] > * {
+    padding: 10px;
+    background: #73A580;
+    
+}
+
+.details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+details[open] summary {
+    max-height: 200px; /* changez cette valeur selon la hauteur de votre contenu */
 }
